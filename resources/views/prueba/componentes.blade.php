@@ -1,4 +1,8 @@
-<h1>Componentes y Directivas BLADE</h1>
+@extends('admin.layouts.main')
+
+@section('title','Componentes Blade')
+@section('content')
+
 
 <h2>IMPRIMIR VALORES</h2>
 @php
@@ -64,3 +68,4 @@ $cont=1;
         $c++;
     } while ($c <= 20);
 @endphp
+@endsection

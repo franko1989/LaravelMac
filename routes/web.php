@@ -1,6 +1,5 @@
 <?php
 
-<<<<<<< HEAD
 use App\Http\Controllers\PruebaController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,17 +12,17 @@ Route::get('/', function () {
 //crear una ruta para http://127.0.0.1:8000/hola
 Route::get('hola', function () {
     return 'hola mundo';
-});
+})->name('practica1');
 
 //rutas y paso de parametros http://127.0.0.1:8000/persona/Carlos/15
 Route::get('persona/{nombre}/{edad}', function ($nombre, $edad) {
     return 'hola ' . $nombre . ' usted tiene ' . $edad . ' años';
-});
+})->name('practica2');
 
 // paso de parametros con valores por defecto http://127.0.0.1:8000/estudiante/Megan o ttp://http://127.0.0.1:8000/estudiante
 Route::get('estudiante/{nombre?}', function ($nombre = 'Sin nombre') {
     return 'Nombre de estudiante: ' . $nombre;
-});
+})->name('practica3');
 
 //rutas validacion de parametros 
 //http://127.0.0.1:8000/usuario/12 (aceptado)
@@ -31,7 +30,7 @@ Route::get('estudiante/{nombre?}', function ($nombre = 'Sin nombre') {
 
 Route::get('usuario/{id}', function ($id) {
     return 'Id de Usuario: ' . $id;
-})->where('id', '[0-9]+');
+})->where('id', '[0-9]+')->name('practica4');
 
 //rutas validacion de parametros 
 //http://127.0.0.1:8000/categoria/administrador (aceptado)
@@ -39,7 +38,7 @@ Route::get('usuario/{id}', function ($id) {
 //c3 (no aceptado)
 Route::get('categoria/{slug}', function ($slug) {
     return 'Categoria: ' . $slug;
-})->where('slug', '[A-Za-z\-]+');  //solo acepta letras y guiones
+})->where('slug', '[A-Za-z\-]+')->name('practica5');  //solo acepta letras y guiones
 
 
 
@@ -50,7 +49,7 @@ Route::get('/posts', function () {
         ['id' => 1, 'title' => 'post 1'],
         ['id' => 2, 'title' => 'post 2']
     ]);
-});
+})->name('practica6');
 
 //Rutas, grupos
 //http://127.0.0.1:8000/saludo/dia
@@ -59,15 +58,15 @@ Route::get('/posts', function () {
 Route::group(['prefix' => 'saludo'], function () {
     Route::get('dia', function () {
         return 'Buenos Dias';
-    });
+    })->name('saludo.dia');
 
     Route::get('tarde', function () {
         return 'Buenos Tardes';
-    });
+    })->name('saludo.tarde');
 
     Route::get('noche', function () {
         return 'Buenos Noche';
-    });
+    })->name('saludo.noches');
 });
 
 
@@ -77,27 +76,17 @@ Route::get('prueba',[PruebaController::class,'index']);
 
 //realiza un mensaje desde controller en la funcion mostrarDatos
 //http://127.0.0.1:8000/prueba/empleados/datos/Pedro/5000
-Route::get('prueba/empleado/datos',[PruebaController::class,'mostrarDatos']);
+Route::get('prueba/empleado/datos',[PruebaController::class,'mostrarDatos'])->name('prueba.empleado');
 
 //utilizando Blade para las vistas
 //http://127.0.0.1:8000/prueba/controlador
-Route::get('prueba/controlador',[PruebaController::class,'holaBlade']);
+Route::get('prueba/controlador',[PruebaController::class,'holaBlade'])->name('prueba.controlador');
 
 
-Route::get('prueba/persona',[PruebaController::class,'datosPersona']);
+Route::get('prueba/persona',[PruebaController::class,'datosPersona'])->name('prueba.persona');
 
 
-Route::get('prueba/empleado',[PruebaController::class,'datosEmpleado']);
+Route::get('prueba/empleado',[PruebaController::class,'datosEmpleado'])->name('prueba.emp');
 
-Route::get('prueba/componentes',[PruebaController::class,'componentesBlade']);
+Route::get('prueba/componentes',[PruebaController::class,'componentesBlade'])->name('prueba.componentes');
 
-Route::get('tmp',function(){
-    return view('admin.layouts.main');
-});
-=======
-use Illuminate\Support\Facades\Route;
-
-Route::get('/', function () {
-    return view('welcome');
-});
->>>>>>> 46450c2528a3edfd71bff5b5795d671cf20371bf
