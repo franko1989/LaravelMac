@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 use App\Http\Controllers\PruebaController;
 use Illuminate\Support\Facades\Route;
 
@@ -93,3 +94,10 @@ Route::get('prueba/componentes',[PruebaController::class,'componentesBlade']);
 Route::get('tmp',function(){
     return view('admin.layouts.main');
 });
+=======
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', function () {
+    return view('welcome');
+});
+>>>>>>> 46450c2528a3edfd71bff5b5795d671cf20371bf
